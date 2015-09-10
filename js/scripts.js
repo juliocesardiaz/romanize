@@ -48,22 +48,14 @@ var romanize = function(unit){
   }
 };
 
+$(document).ready(function(){
+  $("form#romanize").submit(function(event){
+    var num = parseInt($("input#num").val());
+    var result = romanize(num);
 
-
-
-
-
-
-// $(document).ready(function(){
-//   $("form#multipleCounter").submit(function(event){
-//     var multiple = parseInt($("input#multiple").val());
-//     var limit = parseInt($("input#limit").val());
-//     var result = multipleCounter(multiple, limit);
-//
-//     $(".multiple").text(multiple);
-//     $(".limit").text(limit);
-//     $(".counter").text(result.join(", "));
-//     $("#result").show();
-//     event.preventDefault();
-//   });
-// });
+    $(".num").text(num);
+    $(".roman").text(result);
+    $("#result").show();
+    event.preventDefault();
+  });
+});
